@@ -1,0 +1,218 @@
+/* Importation des polices de base */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Définition de 'l'élément universel' (comme j'aime l'appeler) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    transition: 200ms ease-in-out;
+    scroll-behavior: smooth;
+}
+
+/* Définition des différentes variables, notamment des couleurs, des bordures, utilisées dans ce fichier CSS mais également tous les autres fichiers */
+:root {
+    /* Variables de couleur */
+    --green-color: #588157;
+    --selected-green-color: #588157aa;
+    --blue-color: #40798c;
+    --selected-blue-color: #40798caa;
+    --red-color: #b60000;
+    --white-color: #F8F9FA;
+    --gray-color: #495057;
+    --darkgray-color: #343A40;
+    --darkergray-color: #3D444A;
+    --lightgray-color: #D3D3D3FF;
+    --lightergray-color: #E9ECEF;
+    --black-color: #212529;
+    --purple-color: #6a4c93;
+    --orange-color: #f08a5d;
+    --yellow-color: #ffc107;
+
+    /* Variables de flou */
+    --white-blur: #F8F9FAcc;
+    --black-blur: #212529cc;
+
+    /* Variables de bordure */
+    --default-border: 15px;
+    --rounded-border: 50%;
+
+    /* Variables de typographie */
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-large: 1.25rem;
+    --line-height: 1.5;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Variables d'espacement */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Variables supplémentaires */
+    --default-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0px;
+    --default-zoom: scale(1.05);
+    --scroll-margin-top: 81px;
+
+    /* Variable de positionnement (pour les containers et parents) */
+    /* Pour le contenu des enfants */
+    --content-padding-min: 1%;
+    --content-padding-max: 1.5%;
+    /* Pour les containers */
+    --section-margin: 2.5vh 0;
+    --section-padding: 1% 2.5% 2.5% 2.5%;
+}
+
+::selection {
+    background-color: var(--selected-blue-color);
+    color: var(--white-color);
+}
+
+.body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .main {
+        flex: 1;
+    }
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    position: sticky;
+
+    z-index: 999999999;
+}
+
+.header .navbar {
+    width: 80%;
+    padding: 1% 2%;
+    margin: 2.5vh 0 0 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--white-blur);
+    border-radius: var(--default-border);
+    box-shadow: var(--default-shadow);
+
+    .logo {
+        height: 32px;
+    }
+
+    .logo:hover {
+        transform: scale(1.2);
+        box-shadow: var(--default-shadow);
+    }
+
+    .links {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        align-items: center;
+
+        list-style: none;
+    }
+
+    .links .item {
+        padding: 0 0 0 1vw;
+    }
+
+    .links .item .link {
+        color: var(--black-color);
+        text-decoration: none;
+    }
+
+    .links .item .link:hover {
+        color: var(--blue-color);
+    }
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main .section {
+    margin: 2.5vh 0;
+
+    padding: 1% 2.5% 2.5% 2.5%;
+
+    border-radius: var(--default-border);
+    background-color: var(--white-blur);
+    box-shadow: var(--default-shadow);
+
+    .title {
+        margin: 2.5vh 0;
+        text-align: center;
+    }
+}
+
+.link {
+    color: var(--blue-color);
+    text-decoration: none;
+}
+
+/* Les boutons utilisés sur tout le site */
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+    padding: 1% 3%;
+    margin: 0 1vw;
+    background-color: var(--lightgray-color);
+    color: var(--black-color);
+    text-decoration: none;
+    border-radius: var(--default-border);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.button:hover {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+
+/* Le loading spinner qui s'affiche sur certaines pages */
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--lightgray-color);
+    border-top: 5px solid var(--blue-color);
+    border-radius: var(--rounded-border);
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+/* Pour éviter que le texte et les icônes des boutons s'activent séparament */
+
+.button i {
+    color: inherit !important;
+}
+
+.button:hover i {
+    color: var(--white-color) !important;
+}
+
+/* Neutralise l'affichage d'un élement */
+
+.none {
+    display: none;
+}
